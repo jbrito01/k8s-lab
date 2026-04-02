@@ -4,7 +4,7 @@ metadata:
   name: nginx
   namespace: default
 spec:
-  replicas: 22
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
@@ -18,9 +18,9 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
-      volumeMounts:
+        volumeMounts:
         - name: html
-          mountPath: /usr/share/nginx/html  
+          mountPath: /usr/share/nginx/html
         resources:
           requests:
             cpu: "100m"
@@ -28,7 +28,7 @@ spec:
           limits:
             cpu: "200m"
             memory: "128Mi"
-      volumes:     
-        - name: html
-          configMap:
-            name: nginx-html 
+      volumes:
+      - name: html
+        configMap:
+          name: nginx-html
