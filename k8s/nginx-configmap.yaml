@@ -5,4 +5,4 @@ metadata:
   namespace: default
 data:
   index.html: |
-    <h1>Hello World Jairo 🔥</h1>
+    <h1>Hello World Jairo </h1>
