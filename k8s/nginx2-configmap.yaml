@@ -14,37 +14,25 @@ data:
           margin: 0;
           height: 100vh;
           display: flex;
-          flex-direction: column;
           justify-content: center;
           align-items: center;
           background-color: red;
           color: white;
           font-family: Arial, sans-serif;
         }
-
         #clock {
           font-size: 3rem;
-          margin-bottom: 20px;
           text-align: center;
-        }
-
-        img {
-          max-width: 300px;
-          height: auto;
         }
       </style>
     </head>
     <body>
       <div id="clock"></div>
-
-      <img src="https://www.futbolred.com/files/article_main/uploads/2019/12/10/5df07368cd643.png" alt="Futbolred">
-
       <script>
         function updateClock() {
           const now = new Date();
           document.getElementById("clock").innerHTML = now.toLocaleString();
         }
-
         setInterval(updateClock, 1000);
         updateClock();
       </script>
