@@ -5,4 +5,48 @@ metadata:
   namespace: default
 data:
   index.html: |
-    <h1>Hello World Jairo </h1>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Fecha y hora</title>
+      <style>
+        body {
+          margin: 0;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          background-color: blue;
+          color: white;
+          font-family: Arial, sans-serif;
+        }
+
+        #clock {
+          font-size: 3rem;
+          margin-bottom: 20px;
+          text-align: center;
+        }
+
+        img {
+          max-width: 300px;
+          height: auto;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="clock"></div>
+
+      <img src="https://media.magflags.net/media/catalog/product/cache/bbfe81b5dc693f3f88259968def067fa/D/O/DO-1x1.5.png" alt="Futbolred">
+
+      <script>
+        function updateClock() {
+          const now = new Date();
+          document.getElementById("clock").innerHTML = now.toLocaleString();
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+      </script>
+    </body>
+    </html>
