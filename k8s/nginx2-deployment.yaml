@@ -14,46 +14,15 @@ spec:
         app: nginx2
     spec:
       containers:
-      - name: nginx2
-        image: nginx:latest
-        ports:
-        - containerPort: 80
-        command: ["/bin/sh", "-c"]
-        args:
-          - echo '<!DOCTYPE html>
-<html>
-<head>
-  <title>Hora actual</title>
-  <style>
-    body {
-      background-color: #007BFF;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    #clock {
-      font-size: 3em;
-    }
-  </style>
-</head>
-<body>
-
-  <div id="clock"></div>
-
-  <script>
-    function actualizarHora() {
-      const ahora = new Date();
-      document.getElementById("clock").innerHTML = ahora.toLocaleString();
-    }
-
-    setInterval(actualizarHora, 1000);
-    actualizarHora();
-  </script>
-
-</body>
-</html>' > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'
+        - name: nginx2
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: html-volume
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+      volumes:
+        - name: html-volume
+          configMap:
+            name: nginx2-html
