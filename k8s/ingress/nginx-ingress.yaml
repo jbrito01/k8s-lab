@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: nginx-ingress
-  namespace: default   # 👈 IMPORTANTE
+  namespace: default
 spec:
   ingressClassName: nginx
   rules:
@@ -14,5 +14,16 @@ spec:
         backend:
           service:
             name: nginx
+            port:
+              number: 80
+
+  - host: jairo2.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx2
             port:
               number: 80
