@@ -37,7 +37,7 @@ data:
     <body>
       <div id="clock"></div>
 
-      <img src="https://www.futbolred.com/files/article_main/uploads/2019/12/10/5df07368cd643.png" alt="Futbolred">
+      <img src="https://embamex.sre.gob.mx/republicadominicana/images/stories/mapa%20rep%20dom%202.jpg" alt="Futbolred">
 
       <script>
         function updateClock() {
